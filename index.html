@@ -3,8 +3,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>有招</title>
+<meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+<!--移动端版本兼容 -->
+<script type="text/javascript">            var mengvalue = -1;
+            //if(mengvalue<0){mengvalue=0;}
+            var phoneWidth = parseInt(window.screen.width);
+            var phoneScale = phoneWidth / 640;
+
+            var ua = navigator.userAgent;
+            if (/Android (\d+\.\d+)/.test(ua)) {
+                var version = parseFloat(RegExp.$1);
+                // andriod 2.3
+                if (version > 2.3) {
+                    document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+                    // andriod 2.3以上
+                } else {
+                    document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+                }
+                // 其他系统
+            } else {
+                document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+            }
+        </script>
+<!--移动端版本兼容 end -->
 </head>
-<body style="margin:auto;padding:0px;">
+  <body style="margin:auto;padding:0px;">
 
 <img src="https://github.com/yemet/yemet.github.io/raw/master/youzhao.jpg"/>
 </body></html>
